@@ -1,0 +1,20 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 200
+hold up+right+1
+run 30
+print debug_frames w1
+print late_frames w1
+run 100
+print debug_frames w1
+print late_frames w1
+hold up+left+1
+run 100
+print debug_frames w1
+print late_frames w1
+screenshot shots/busy.ppm
+print alien_count w1
+expectpace 0

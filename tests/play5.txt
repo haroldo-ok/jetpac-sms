@@ -1,0 +1,38 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 420
+print alien_count w1
+print jet w1
+print jet+1 w1
+print jet+2 w1
+echo --- no spare lives, then drop a meteor on Jetman
+poke lives 0 w1
+poke slots+32 3 w1
+poke slots+33 128 w1
+poke slots+34 183 w1
+run 3
+screenshot shots/p5_hit.ppm
+print jet w1
+print slots+80 w1
+run 30
+screenshot shots/p5_expl.ppm
+print slots+80 w1
+print slots+84 w1
+psglog shots/p5_psg.log
+waituntil game_state == 2 600 w1
+psgstop
+print gameover_timer w1
+print gameover_player w1
+run 30
+screenshot shots/p5_gameover.ppm
+expectcolors 3
+waituntil game_state == 0 600 w1
+run 30
+screenshot shots/p5_menu.ppm
+print hiscore w1
+print hiscore+1 w1
+print hiscore+2 w1
+expectvdp display 1

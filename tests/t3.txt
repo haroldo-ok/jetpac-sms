@@ -1,0 +1,25 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 200
+poke slots+4 3 w1
+poke slots+5 6 w1
+poke jet+1 168 w1
+poke jet+2 183 w1
+waituntil level == 1 600 w1
+print slots+2 w1
+waituntil slots == 9 600 w1
+print slots+2 w1
+print begin_delay w1
+print lives w1
+print jet w1
+run 1
+print begin_delay w1
+run 1
+print begin_delay w1
+run 50
+print begin_delay w1
+print jet w1
+print jet+2 w1

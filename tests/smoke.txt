@@ -1,0 +1,9 @@
+symbols jetpac.noi
+echo boot: menu screen
+run 180
+expectvdp display 1
+expectcolors 6
+print game_state w1
+print is_pal w1
+print debug_frames w1
+screenshot shots/00_menu.ppm

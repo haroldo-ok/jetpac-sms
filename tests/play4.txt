@@ -1,0 +1,43 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 200
+echo --- force a fully built, fuelled rocket and put Jetman on it
+echo (a meteor is about to cross the pad in this run: remove it first)
+poke slots+32 0 w1
+poke jet+1 168 w1
+poke jet+2 183 w1
+poke slots+4 3 w1
+poke slots+5 6 w1
+print slots+1 w1
+print slots+2 w1
+run 2
+screenshot shots/p4_fuelled.ppm
+run 38
+print slots w1
+print lives w1
+print jet w1
+screenshot shots/p4_takeoff.ppm
+waituntil level == 1 600 w1
+print level w1
+print slots w1
+print slots+2 w1
+screenshot shots/p4_level2.ppm
+run 60
+screenshot shots/p4_landing.ppm
+waituntil slots == 9 600 w1
+print slots+2 w1
+print jet w1
+print begin_delay w1
+run 200
+screenshot shots/p4_l2play.ppm
+print alien_count w1
+echo --- kill jetman with an alien on top of him
+print jet w1
+print jet+1 w1
+print jet+2 w1
+print slots+32 w1
+print slots+33 w1
+print slots+34 w1

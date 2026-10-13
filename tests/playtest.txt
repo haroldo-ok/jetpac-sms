@@ -1,0 +1,41 @@
+symbols jetpac.noi
+echo === boot: title / game selection menu
+run 180
+expectvdp display 1
+expectcolors 6
+expect game_state == 0 w1
+screenshot shots/pt_menu.ppm
+echo === fire starts a 1 player game
+run 20
+hold 1
+run 10
+hold none
+expect game_state == 1 w1
+expect lives == 4 w1
+waituntil begin_delay == 0 400 w1
+echo === fly right, fire the laser, check Jetman is airborne and a beam exists
+hold up+right+1
+run 30
+print jet w1
+print jet+2 w1
+expect jet+2 < 183 w1
+screenshot shots/pt_play.ppm
+expectcolors 8
+hold none
+run 60
+expectvdp display 1
+echo === no spare lives, drop a meteor on Jetman -> explosion -> GAME OVER
+poke lives 0 w1
+poke slots+32 3 w1
+poke slots+33 128 w1
+poke slots+34 170 w1
+waituntil game_state == 2 900 w1
+run 30
+screenshot shots/pt_gameover.ppm
+expectcolors 3
+echo === back to the menu after the game over message
+waituntil game_state == 0 600 w1
+run 40
+expectvdp display 1
+screenshot shots/pt_menu2.ppm
+expectpace 0

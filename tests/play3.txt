@@ -1,0 +1,41 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 200
+print begin_delay w1
+print jet w1
+print jet+2 w1
+echo fly up-right and fire
+hold up+right+1
+run 60
+screenshot shots/p3_a.ppm
+print jet w1
+print jet+1 w1
+print jet+2 w1
+print alien_count w1
+hold none
+hold 1
+run 90
+screenshot shots/p3_b.ppm
+print alien_count w1
+print score w1
+print score+1 w1
+print score+2 w1
+hold left+1
+run 120
+screenshot shots/p3_c.ppm
+print alien_count w1
+print score w1
+print score+1 w1
+print score+2 w1
+print lives w1
+print jet w1
+hold none
+run 300
+screenshot shots/p3_d.ppm
+print lives w1
+print jet w1
+print game_state w1
+print debug_frames w1

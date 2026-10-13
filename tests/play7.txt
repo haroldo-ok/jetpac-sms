@@ -1,0 +1,96 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 200
+echo --- pick up the middle module (slot 2 at 128,95)
+poke slots+32 0 w1
+poke slots+40 0 w1
+poke slots+48 0 w1
+poke jet+1 128 w1
+poke jet+2 95 w1
+run 3
+expect slots+20 == 3 w1
+expect score+1 == 1 w1
+expect score+2 == 0 w1
+run 10
+print jet+1 w1
+print jet+2 w1
+print slots+17 w1
+print slots+18 w1
+screenshot shots/p7_carry.ppm
+echo --- carry it over the rocket
+poke jet+1 168 w1
+poke jet+2 120 w1
+run 3
+print slots+20 w1
+print slots+17 w1
+run 10
+print slots+18 w1
+screenshot shots/p7_drop.ppm
+waituntil slots+16 == 0 200 w1
+expect slots+4 == 2 w1
+expect slots+12 == 1 w1
+screenshot shots/p7_mod2.ppm
+echo --- nose cone (slot 1 at 48,71)
+poke jet+1 48 w1
+poke jet+2 71 w1
+run 3
+print slots+12 w1
+poke jet+1 168 w1
+poke jet+2 120 w1
+run 3
+print slots+12 w1
+waituntil slots+8 == 0 200 w1
+expect slots+4 == 3 w1
+screenshot shots/p7_built.ppm
+echo --- wait for a fuel pod (slot 1) to appear and land
+poke jet+1 128 w1
+poke jet+2 183 w1
+waituntil slots+8 == 4 400 w1
+print slots+9 w1
+print slots+10 w1
+print slots+12 w1
+print slots+14 w1
+run 20
+screenshot shots/p7_fuelfall.ppm
+waituntil slots+12 == 1 400 w1
+print slots+9 w1
+print slots+10 w1
+echo --- grab it and load the rocket
+run 20
+print slots+9 w1
+print slots+10 w1
+poke jet+1 40 w1
+poke jet+2 70 w1
+run 3
+print slots+12 w1
+poke jet+1 168 w1
+poke jet+2 120 w1
+run 3
+print slots+12 w1
+run 10
+screenshot shots/p7_fueldrop.ppm
+waituntil slots+8 == 0 300 w1
+expect slots+5 == 1 w1
+run 5
+screenshot shots/p7_fuel1.ppm
+echo --- a collectible item (slot 2) appears, grab it: +250
+poke jet+1 128 w1
+poke jet+2 183 w1
+waituntil slots+16 == 14 600 w1
+print slots+17 w1
+print slots+18 w1
+print slots+22 w1
+run 40
+screenshot shots/p7_item.ppm
+expect slots+16 == 14 w1
+expect score+1 == 3 w1
+expect score+2 == 0 w1
+poke jet+1 136 w1
+poke jet+2 94 w1
+run 3
+expect slots+16 == 0 w1
+expect score+1 == 5 w1
+expect score+2 == 80 w1

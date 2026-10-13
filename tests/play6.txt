@@ -1,0 +1,60 @@
+symbols jetpac.noi
+run 200
+echo --- menu: select 2 PLAYER GAME, then START
+tap up
+run 5
+tap up
+run 5
+tap up
+run 5
+print menu_cursor w1
+tap 1
+run 5
+expect options == 1 w1
+screenshot shots/p6_menu.ppm
+tap down
+run 5
+tap down
+run 5
+tap down
+run 5
+tap 1
+run 5
+expect game_state == 1 w1
+expect begin_delay == 255 w1
+expect cur_player == 0 w1
+expect lives == 4 w1
+expect lives2 == 4 w1
+waituntil begin_delay == 0 400 w1
+echo --- player 1 loses the last life: GAME OVER PLAYER 1, player 2 takes over
+poke lives 0 w1
+poke slots+32 3 w1
+poke slots+33 128 w1
+poke slots+34 170 w1
+waituntil cur_player == 1 400 w1
+expect game_state == 2 w1
+expect gameover_player == 0 w1
+expect lives == 4 w1
+run 30
+screenshot shots/p6_gameover1.ppm
+waituntil game_state == 1 400 w1
+run 30
+expect begin_delay > 200 w1
+screenshot shots/p6_p2start.ppm
+waituntil begin_delay == 0 400 w1
+print jet w1
+run 20
+screenshot shots/p6_p2play.ppm
+echo --- player 2 also out: GAME OVER, back to the menu
+poke lives 0 w1
+poke slots+32 3 w1
+poke slots+33 128 w1
+poke slots+34 170 w1
+waituntil game_state == 2 400 w1
+expect gameover_player == 1 w1
+run 30
+screenshot shots/p6_gameover2.ppm
+waituntil game_state == 0 900 w1
+run 40
+screenshot shots/p6_menu2.ppm
+expectvdp display 1

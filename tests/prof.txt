@@ -1,0 +1,7 @@
+symbols jetpac.noi
+run 100
+profstart
+run 100
+profstop
+profdump shots/prof.txt
+print debug_frames w1

@@ -1,0 +1,22 @@
+symbols jetpac.noi
+run 200
+print debug_frames w1
+screenshot shots/00_menu.ppm
+echo start game from the menu (cursor on START GAME)
+hold 1
+run 10
+hold none
+run 30
+expect game_state == 1 w1
+print level w1
+print lives w1
+print begin_delay w1
+run 150
+screenshot shots/01_start.ppm
+print begin_delay w1
+print game_timer w1
+run 200
+screenshot shots/02_play.ppm
+print game_timer w1
+print alien_count w1
+print debug_frames w1

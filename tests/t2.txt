@@ -1,0 +1,50 @@
+symbols jetpac.noi
+run 150
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1
+run 1
+print tick_count w1
+print tick_acc w1
+print debug_frames w1

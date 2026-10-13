@@ -1,0 +1,16 @@
+symbols jetpac.noi
+run 200
+hold 1
+run 10
+hold none
+run 380
+screenshot shots/d2.ppm
+dumpstate shots/state2.bin
+print jet w1
+print jet+1 w1
+print jet+2 w1
+print jet+3 w1
+print jet+4 w1
+print jet+5 w1
+print jet+6 w1
+print jet+7 w1
